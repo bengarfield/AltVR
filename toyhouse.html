@@ -33,6 +33,7 @@
   var sc = document.querySelector('a-scene');
   var scene = document.querySelector('a-scene').object3D;
   var updateRate = 500;
+  var sync;
   
   var modelPromise = new Promise(function (resolve, reject) {
     var url = 'https://bengarfield.github.io/AltVR-Tests/avatars/';
@@ -58,7 +59,7 @@
     modelPromise,
     modelPromise2
   ]).then(function(results){
-    var sync = results[0].instance;
+    sync = results[0].instance;
     var user = results[1];
     var skeleton = results[2];
     //console.log(sync)
@@ -624,7 +625,32 @@
     var avatar = user.avatarInfo;
     console.log('avatar: ', avatar);
     var sid = avatar.sid;
+    
+
+    if (sid == 'nova_robot_male') {
+      sid = 's-series-m01';
+    } else if (sid == 'nova_robot_female') {
+      sid = 's-series-f01';
+    } else if (sid == 'nova_robot_flow') {
+      sid = 'a-series-m01';
+    } else if (sid == 'nova_robot_visor') {
+      sid = 'x-series-m02';
+    } else if (sid == 'nova_robot-classic') {
+      sid = 'pod-classic';
+    } else if (sid == 'nova_robothead_propellerhead') {
+      sid = 'robothead-propellerhead-01';
+    } else if (sid == 'nova_bumblebee') {
+      sid = 'robothead-roundguy-01';
+    } else if (sid == 'rubenoid-male') {
+      sid = 'rubenoid-male-01';
+    } else if (sid == 'rubenoid-female') {
+      sid = 'rubenoid-female-01';
+    }
+    
     you.avatar = {type:sid};
+    avatar.primaryColor = 'white';
+    avatar.highlightColor = [255,255,255];
+    avatar.textures = [1,1,1];
 
     if (sid =='a-series-m01' || sid == 'pod-classic' || sid == 's-series-f01' || sid == 's-series-m01' || sid == 'x-series-m02'){
       var pColor = avatar.primaryColor;
