@@ -23,6 +23,7 @@
     <a-mixin id='gold' material='color: #ffbf00; side: double'></a-mixin>
     
     <a-mixin id='creatortext' n-text='fontSize: 1; text: <color=black>I built\nthis place' position='-.1 .35 -.151' scale='.15 .15 .15' rotation='0 180 0' n-skeleton-parent='part: spine' sync sync-n-skeleton-parent></a-mixin>
+    <a-mixin id='tenktext' n-text='fontSize: 1; text: <color=black>10,000th\nVisitor!' position='-.1 .35 -.151' scale='.15 .15 .15' rotation='0 180 0' n-skeleton-parent='part: spine' sync sync-n-skeleton-parent></a-mixin>
     <a-mixin id='devtext' n-text='fontSize: 1; text: <color=black>I am a\ndeveloper' position='-.1 .35 -.151' scale='.15 .15 .15' rotation='0 180 0' n-skeleton-parent='part: spine' sync sync-n-skeleton-parent></a-mixin>
     <a-mixin id='admintext' n-text='fontSize: 1; text: <color=black>I work\nhere' position='-.1 .35 -.151' scale='.15 .15 .15' rotation='0 180 0' n-skeleton-parent='part: spine' sync sync-n-skeleton-parent></a-mixin>
 
@@ -69,6 +70,10 @@
       sc.systems['sync-system'].instantiate('ring blue', sc);
       sc.systems['sync-system'].instantiate('creatortext', sc);
       sync.child('scene').onDisconnect().setWithPriority(null, 10);
+    } else if (user.userid == 'gTZm4f6JjcrcoaY2x2clKh_yaQGjsfbAKhcGQWrV4Is') {
+      sc.systems['sync-system'].instantiate('badge', sc);
+      sc.systems['sync-system'].instantiate('ring', sc);
+      sc.systems['sync-system'].instantiate('tenktext', sc);
     }
 
     var models = [];
